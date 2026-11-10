@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Le cuentas la idea a tu asistente de IA y te entrega el reel explicativo animado: guion, voz, 2D y 3D, texto, sonido y portada. Mira 7 ejemplos.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ninjasux Motion Studio 4">
+<meta property="og:description" content="Le cuentas la idea a tu asistente de IA y te entrega el reel explicativo animado: guion, voz, 2D y 3D, texto, sonido y portada. Mira 7 ejemplos.">
+<meta property="og:image" content="https://ninjaasux.github.io/ninjasux-motion-studio-demo/media/compartir.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://ninjaasux.github.io/ninjasux-motion-studio-demo/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="media/logo.svg" type="image/svg+xml">
+<title>Ninjasux Motion Studio 4</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Concepto: taller de imprenta de noche. Fondo de tinta, colores planos de registro (rojo, teal, cobalto, amarillo)
+   y trama de puntos, como los propios videos. Un solo look oscuro, a propósito. */
+:root {
+  --tinta: #12151d; --placa: #1a1f2b; --borde: #2a3142; --papel: #ece6d8; --gris: #9aa2b4;
+  --rojo: #ee4b2f; --teal: #22b596; --cobalto: #4a7ee6; --amarillo: #f3c33c;
+  --display: "Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+  --texto: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--tinta); color: var(--papel); font: 400 16px/1.6 var(--texto); }
+.envoltura { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); line-height: 1.05; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; }
+p { margin: 0; }
+a { color: inherit; }
+.etiqueta { font: 600 12px/1 var(--texto); letter-spacing: .12em; text-transform: uppercase; color: var(--gris); }
+code, .mono { font-family: var(--mono); font-size: .9em; }
+section { padding-block: 56px; border-top: 1px solid var(--borde); }
+
+/* portada */
+.portada { padding-block: 48px 64px; position: relative; overflow: hidden; }
+.portada::after { content: ""; position: absolute; right: -60px; top: -40px; width: 420px; height: 420px; pointer-events: none;
+  background: radial-gradient(circle, var(--cobalto) 1.6px, transparent 2px) 0 0 / 11px 11px; opacity: .22;
+  -webkit-mask: radial-gradient(circle at 70% 30%, #000 0 35%, transparent 70%); mask: radial-gradient(circle at 70% 30%, #000 0 35%, transparent 70%); }
+.portada .envoltura { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 48px; align-items: center; position: relative; z-index: 1; }
+.marca { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+.registro { width: 22px; height: 22px; border: 2px solid var(--papel); border-radius: 50%; position: relative; flex: none; }
+.registro::before, .registro::after { content: ""; position: absolute; background: var(--papel); }
+.registro::before { width: 2px; height: 32px; left: 8px; top: -7px; }
+.registro::after { height: 2px; width: 32px; top: 8px; left: -7px; }
+.portada h1 { font-size: clamp(40px, 6.6vw, 76px); font-weight: 800; letter-spacing: -.02em; }
+.portada h1 .rojo { color: var(--rojo); }
+.portada h1 .tachado { color: var(--gris); text-decoration: line-through; text-decoration-color: var(--rojo); text-decoration-thickness: .09em; }
+.aviso { background: var(--rojo); color: #fff; font: 700 16px/1.3 var(--texto); padding: 15px 22px; border-radius: 10px; max-width: 22em; }
+.bajada { font-size: 19px; color: #cfd3dc; max-width: 34em; margin-top: 22px; }
+.acciones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; align-items: center; }
+.boton { display: inline-flex; align-items: center; gap: 8px; background: var(--amarillo); color: #1b1505; font: 700 16px/1 var(--texto); padding: 15px 22px; border-radius: 10px; text-decoration: none; }
+.boton:focus-visible, video:focus-visible { outline: 3px solid var(--cobalto); outline-offset: 3px; }
+.nota-boton { color: var(--gris); font-size: 14px; }
+.ficha { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 26px; font: 500 13px/1.4 var(--mono); color: var(--gris); }
+.ficha span::before { content: "■ "; color: var(--teal); }
+.telefono { position: relative; width: 100%; max-width: 320px; justify-self: center; }
+.telefono video { width: 100%; aspect-ratio: 9 / 16; display: block; border-radius: 22px; background: #000; border: 6px solid #0b0d12; box-shadow: 0 0 0 1px var(--borde); }
+.telefono .pie { margin-top: 12px; font-size: 14px; color: var(--gris); text-align: center; }
+
+/* galería */
+.cabeza { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 32px; margin-bottom: 28px; }
+.cabeza p { color: var(--gris); max-width: 36em; }
+.galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 22px; }
+.pieza { min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.pieza video { width: 100%; aspect-ratio: 9 / 16; display: block; border-radius: 14px; background: #000; }
+.pieza h3 { font-size: 17px; font-weight: 600; font-family: var(--display); line-height: 1.2; }
+.datos { display: flex; gap: 8px; align-items: center; font: 500 12px/1 var(--mono); color: var(--gris); }
+.estilo { padding: 5px 8px; border-radius: 6px; color: var(--tinta); font-weight: 600; }
+.estilo.imprenta { background: var(--teal); }
+.estilo.persona { background: var(--amarillo); }
+.estilo.acuarela { background: #e9a06b; }
+.estilo.producto { background: var(--rojo); color: #fff; }
+
+/* cómo funciona */
+.pasos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 28px; }
+.paso { background: var(--placa); border: 1px solid var(--borde); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.paso .n { font: 800 34px/1 var(--display); color: var(--amarillo); }
+.paso h3 { font-size: 20px; font-weight: 600; }
+.paso p { color: #c3c8d3; font-size: 15px; }
+.dicho { display: block; margin-top: 4px; padding: 10px 12px; border-left: 3px solid var(--teal); background: #121722; font-size: 14px; color: var(--papel); border-radius: 0; }
+.comando { display: block; margin-top: 4px; padding: 10px 12px; background: #0d1017; border-radius: 8px; font: 500 13px/1.5 var(--mono); color: var(--teal); overflow-x: auto; white-space: nowrap; }
+
+/* estilos */
+.looks { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin-top: 28px; }
+.look { padding: 18px 18px 18px 20px; border: 1px solid var(--borde); border-radius: 12px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.look b { font-family: var(--display); font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+.look b i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; flex: none; }
+.look span { color: #b9bfcb; font-size: 14px; }
+
+/* tiempos */
+.tabla { overflow-x: auto; margin-top: 24px; border: 1px solid var(--borde); border-radius: 12px; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 520px; }
+th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--borde); }
+th { font: 600 12px/1 var(--texto); letter-spacing: .1em; text-transform: uppercase; color: var(--gris); background: var(--placa); }
+tr:last-child td { border-bottom: 0; }
+td.t { font: 500 14px/1 var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.aclara { color: var(--gris); font-size: 14px; margin-top: 12px; max-width: 60em; }
+
+/* incluye / necesitas / precio */
+.dos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+.lista { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 12px; }
+.lista li { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 10px; color: #d5d9e1; }
+.lista li::before { content: ""; width: 10px; height: 10px; margin-top: 8px; border-radius: 2px; background: var(--teal); }
+.lista.req li::before { background: var(--cobalto); }
+.lista li small { display: block; color: var(--gris); font-size: 14px; }
+.precio { background: var(--papel); color: #171a22; border-radius: 18px; padding: 32px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 40px; align-items: center; }
+.precio h2 { color: #171a22; }
+.precio .cifra { font: 800 clamp(48px, 7vw, 72px)/1 var(--display); letter-spacing: -.02em; }
+.precio .cifra small { font-size: .32em; font-weight: 600; letter-spacing: 0; color: #4b5161; margin-left: 6px; }
+.precio p { color: #3c4252; margin-top: 10px; max-width: 34em; }
+.precio .boton { background: var(--rojo); color: #fff; }
+
+/* preguntas */
+details { border-bottom: 1px solid var(--borde); padding-block: 16px; }
+details:first-of-type { border-top: 1px solid var(--borde); margin-top: 22px; }
+summary { cursor: pointer; font: 600 17px/1.4 var(--display); list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; color: var(--amarillo); font-size: 22px; line-height: 1; }
+details[open] summary::after { content: "–"; }
+details p { color: #c3c8d3; margin-top: 10px; max-width: 46em; }
+footer { padding-block: 36px 48px; border-top: 1px solid var(--borde); color: var(--gris); font-size: 14px; }
+
+@media (max-width: 860px) {
+  .portada .envoltura, .dos { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .pasos { grid-template-columns: minmax(0, 1fr); }
+  .precio { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 480px) {
+  .galeria { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .pieza h3 { font-size: 15px; }
+  section { padding-block: 44px; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} img{max-width:100%}</style>
+</head>
+<body>
+
+<header class="portada">
+  <div class="envoltura">
+    <div>
+      <div class="marca"><span class="registro" aria-hidden="true"></span><span class="etiqueta">Ninjasux Motion Studio 4</span></div>
+      <h1>Esa idea de video <span class="tachado">se queda en tu cabeza</span> <span class="rojo">sale animada.</span></h1>
+      <p class="bajada">Le cuentas la idea a tu asistente de IA y la herramienta te entrega el reel explicativo: guion, voz, animación 2D y 3D, texto en pantalla, efectos de sonido, música y portada. En tu computadora, sin plantillas y sin saber animar.</p>
+      <div class="acciones">
+        <a class="boton" href="#precio">Ver el precio de lanzamiento</a>
+        <span class="nota-boton">Acceso anticipado · primeros 20</span>
+      </div>
+      <div class="ficha" aria-label="Formato de salida">
+        <span>9:16 · 1080×1920</span><span>30 fps</span><span>voz a −16 LUFS</span><span>MP4 + portada</span>
+      </div>
+    </div>
+    <div class="telefono">
+      <video src="v/olla.mp4" poster="v/olla.jpg" controls playsinline preload="metadata" aria-label="Ejemplo: la pesita de la olla exprés"></video>
+      <p class="pie">La pesita de la olla exprés · 36 s · hecho con la herramienta</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="ejemplos">
+    <div class="envoltura">
+      <div class="cabeza">
+        <div><p class="etiqueta">Ejemplos reales</p><h2>Siete videos que salieron de la herramienta</h2></div>
+        <p>Cada uno empezó con una pregunta escrita en el chat. La voz es de ElevenLabs; la animación, el texto, los sonidos y el montaje los hizo la herramienta. Dale play con sonido.</p>
+      </div>
+      <div class="galeria">
+        <article class="pieza"><video src="v/olla.mp4" poster="v/olla.jpg" controls playsinline preload="none"></video><h3>Esa pesita de tu olla exprés no está de adorno</h3><div class="datos"><span class="estilo imprenta">imprenta</span><span>36 s</span></div></article>
+        <article class="pieza"><video src="v/aceite.mp4" poster="v/aceite.jpg" controls playsinline preload="none"></video><h3>¿Por qué nunca debes echarle agua al aceite encendido?</h3><div class="datos"><span class="estilo imprenta">imprenta</span><span>35 s</span></div></article>
+        <article class="pieza"><video src="v/banqueta.mp4" poster="v/banqueta.jpg" controls playsinline preload="none"></video><h3>Esas rayas de la banqueta no están de adorno</h3><div class="datos"><span class="estilo imprenta">imprenta</span><span>36 s</span></div></article>
+        <article class="pieza"><video src="v/cebolla.mp4" poster="v/cebolla.jpg" controls playsinline preload="none"></video><h3>No lloras por el olor de la cebolla</h3><div class="datos"><span class="estilo persona">persona 2D</span><span>31 s</span></div></article>
+        <article class="pieza"><video src="v/palomitas.mp4" poster="v/palomitas.jpg" controls playsinline preload="none"></video><h3>¿Por qué explotan las palomitas y el elote no?</h3><div class="datos"><span class="estilo producto">producto 3D</span><span>33 s</span></div></article>
+        <article class="pieza"><video src="v/cafe-tolerancia.mp4" poster="v/cafe-tolerancia.jpg" controls playsinline preload="none"></video><h3>¿Por qué el café ya no te quita el sueño?</h3><div class="datos"><span class="estilo acuarela">acuarela</span><span>32 s</span></div></article>
+        <article class="pieza"><video src="v/corcholata.mp4" poster="v/corcholata.jpg" controls playsinline preload="none"></video><h3>Los 21 picos de la corcholata</h3><div class="datos"><span class="estilo acuarela">acuarela</span><span>18 s</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="como">
+    <div class="envoltura">
+      <p class="etiqueta">Cómo se usa</p>
+      <h2>Hablas con tu asistente. Él maneja la herramienta.</h2>
+      <div class="pasos">
+        <div class="paso"><span class="n">1</span><h3>Le pides el video</h3><p>Con tus palabras: el tema, para quién es y el estilo. Te propone el guion con datos verificados y te dice cuánto tardará en tu computadora.</p><span class="dicho">«Hazme un reel de 35 segundos de por qué el pan se pone duro, en estilo imprenta.»</span></div>
+        <div class="paso"><span class="n">2</span><h3>Revisas el borrador</h3><p>Primero ves los cuadros clave y un borrador rápido con voz de prueba gratis. Pides cambios igual: «el gancho más rápido», «otra toma aquí».</p><span class="comando">node nms.mjs render pan --borrador</span></div>
+        <div class="paso"><span class="n">3</span><h3>Sale el final</h3><p>Con la voz real (tu cuenta de ElevenLabs) se renderiza el video, la portada y el texto del post. Puede seguir trabajando aunque cierres el asistente.</p><span class="comando">node nms.mjs fondo render pan</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="estilos">
+    <div class="envoltura">
+      <p class="etiqueta">Estilos incluidos</p>
+      <h2>Un estilo para cada tipo de pregunta</h2>
+      <div class="looks">
+        <div class="look"><b><i style="background:var(--teal)"></i>Imprenta</b><span>El objeto se abre en corte y se ve por dentro. Fondo oscuro, color plano, trama de puntos. El más rápido en 3D.</span></div>
+        <div class="look"><b><i style="background:var(--amarillo)"></i>Persona 2D</b><span>Una persona dibujada que siente lo que explicas, con boca sincronizada a la voz. Sale en segundos.</span></div>
+        <div class="look"><b><i style="background:#e9a06b"></i>Acuarela</b><span>Ilustración que se mueve, con un protagonista con cara sobre una mesa. Para explicar un objeto.</span></div>
+        <div class="look"><b><i style="background:var(--rojo)"></i>Producto realista</b><span>Comida y producto con luz de estudio, cortes y física.</span></div>
+        <div class="look"><b><i style="background:var(--cobalto)"></i>Cine</b><span>Caricatura 3D en exteriores: pasto que se mece, nubes, casas, árboles.</span></div>
+        <div class="look"><b><i style="background:#8b93a7"></i>Papel, UI y 2D</b><span>Mecanismos que se arman pieza a pieza, apps en 3D y datos con cifras.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tiempos">
+    <div class="envoltura">
+      <p class="etiqueta">Medido, no prometido</p>
+      <h2>Cuánto tarda en renderizar</h2>
+      <div class="tabla">
+        <table>
+          <thead><tr><th>Video</th><th>Duración</th><th>Render final</th></tr></thead>
+          <tbody>
+            <tr><td>Persona 2D (borrador)</td><td class="t">18 s</td><td class="t">13 s</td></tr>
+            <tr><td>Solo 2D: datos y cifras</td><td class="t">30 s</td><td class="t">2 min</td></tr>
+            <tr><td>Imprenta: la olla exprés</td><td class="t">36 s</td><td class="t">18 min</td></tr>
+            <tr><td>Acuarela: un objeto en una mesa</td><td class="t">30 s</td><td class="t">23 min</td></tr>
+            <tr><td>Producto realista: palomitas</td><td class="t">30 s</td><td class="t">54 min</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="aclara">En una computadora con NVIDIA RTX 4060. La herramienta mide la tuya en 2 minutos (<code>node nms.mjs banco</code>) y te da esta tabla con tus tiempos. Hay cuatro niveles de calidad, de borrador rápido a «cine».</p>
+    </div>
+  </section>
+
+  <section id="incluye">
+    <div class="envoltura dos">
+      <div>
+        <p class="etiqueta">Lo que recibes</p>
+        <h2>Todo lo necesario para el primer video</h2>
+        <ul class="lista">
+          <li><div>La herramienta completa<small>Motor 2D y 3D, voz, sonido, música y render. Se queda en tu computadora.</small></div></li>
+          <li><div>7 plantillas para empezar<small>Imprenta, persona, acuarela, cine, producto, mascota y 2D.</small></div></li>
+          <li><div>8 ejemplos con su código<small>Para ver cómo se hizo cada cosa y pedir variaciones.</small></div></li>
+          <li><div>Guía del comprador y manuales<small>Instalación paso a paso, estilos, planos de cámara y cómo pedir un video.</small></div></li>
+          <li><div>12 meses de actualizaciones 4.x</div></li>
+        </ul>
+      </div>
+      <div>
+        <p class="etiqueta">Lo que necesitas</p>
+        <h2>Requisitos</h2>
+        <ul class="lista req">
+          <li><div>Windows 10 u 11<small>En Mac debería funcionar; está en fase experimental.</small></div></li>
+          <li><div>Un asistente de IA con acceso a tu computadora<small>Recomendado: Claude Code (de pago, aparte).</small></div></li>
+          <li><div>Blender y ffmpeg<small>Gratis. La herramienta los instala o te guía.</small></div></li>
+          <li><div>Para la voz real: tu cuenta de ElevenLabs<small>Opcional. Sin ella trabajas con voz de prueba gratis.</small></div></li>
+          <li><div>Para el 3D: tarjeta gráfica recomendada<small>El 2D y la persona funcionan en casi cualquier computadora.</small></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="precio">
+    <div class="envoltura">
+      <div class="precio">
+        <div>
+          <p class="etiqueta" style="color:#4b5161">Acceso anticipado</p>
+          <div class="cifra">US$67<small>pago único</small></div>
+          <p>Precio de lanzamiento para los primeros 20. Después, US$97. Los videos que hagas son tuyos y no pagas regalías.</p>
+        </div>
+        <div><a class="boton" style="background:var(--rojo);color:#fff" href="mailto:oscar_8291@hotmail.com?subject=Ninjasux%20Motion%20Studio%204">Quiero mi lugar</a><p style="margin-top:10px;font-size:14px;color:#4b5161">o escribe a <b>oscar_8291@hotmail.com</b></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="preguntas">
+    <div class="envoltura">
+      <p class="etiqueta">Preguntas</p>
+      <h2>Antes de comprar</h2>
+      <details><summary>¿Necesito saber programar o animar?</summary><p>No. Le pides las cosas a tu asistente de IA en el chat y él escribe y ejecuta todo. Tú revisas los borradores y decides.</p></details>
+      <details><summary>¿Es un programa con botones?</summary><p>No. Se usa conversando con tu asistente. Por eso puede hacer cosas que una plantilla no hace: cada video se arma para su tema.</p></details>
+      <details><summary>¿Cuánto cuesta la voz?</summary><p>La voz real usa tus créditos de ElevenLabs: unos 400 a 600 por reel de 30 segundos. Mientras ajustas el guion usas la voz de prueba, que es gratis.</p></details>
+      <details><summary>¿Hace personas realistas?</summary><p>No. Hace personas dibujadas, mascotas y objetos con cara. Para personas reales usa tu propio video o una IA de video y pon estas animaciones encima.</p></details>
+      <details><summary>¿Los videos son míos?</summary><p>Sí. Puedes publicarlos y usarlos para tus clientes. Lo que no se permite es revender o compartir la herramienta.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="envoltura">Ninjasux Motion Studio 4 · Todos los videos de esta página se hicieron con la herramienta.</div>
+</footer>
+
+<script>
+  // un solo video sonando a la vez
+  document.querySelectorAll("video").forEach((v) => v.addEventListener("play", () => {
+    document.querySelectorAll("video").forEach((o) => { if (o !== v) o.pause(); });
+  }));
+</script>
+
+</body>
+</html>
