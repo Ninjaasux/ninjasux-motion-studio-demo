@@ -9,5 +9,5 @@ Guion, voz, animación 2D y 3D, texto en pantalla, efectos, música y portada. E
 
 ---
 
-Ninjasux Motion Studio 4 · el código es privado; este repositorio es solo la vitrina.
+Ninjasux Motion Studio 5 · el código es privado; este repositorio es solo la vitrina.
 ¿Quieres una licencia? Escribe a <a href="mailto:oscar_8291@hotmail.com">oscar_8291@hotmail.com</a>.
