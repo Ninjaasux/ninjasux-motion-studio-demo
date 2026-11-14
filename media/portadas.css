@@ -1,0 +1,16 @@
+/* Portadas del canal: solo artes de muestra. El asistente para compradores no se publica. */
+.portadas-muestra{background:linear-gradient(180deg,#151b26,var(--tinta))}
+.portada-destacada{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:30px;align-items:center;margin:0 0 30px}
+.portada-destacada>a{display:block;min-width:0}.portada-destacada img{width:100%;height:auto;border-radius:14px}
+.portada-destacada figcaption{min-width:0}.portada-destacada h3{font-size:clamp(25px,3vw,34px);margin:12px 0}
+.portada-destacada p{color:var(--suave);font-size:15px}.portada-destacada .etiqueta{color:var(--amarillo)}
+.portadas-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+.portadas-grid figure{margin:0;min-width:0}.portadas-grid a{display:block;border-radius:11px;overflow:hidden;background:var(--placa);outline-offset:4px}
+.portadas-grid img{width:100%;height:auto;aspect-ratio:941/1672;object-fit:contain;transition:transform .2s ease}
+.portadas-grid a:hover img{transform:scale(1.025)}.portadas-grid figcaption{font-size:13px;color:var(--suave);margin-top:9px;line-height:1.35}
+.portadas-metodo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:32px;border-top:1px solid var(--borde);margin-top:36px;padding-top:30px}
+.portadas-metodo h3{font-size:24px}.portadas-metodo p{font-size:15px;color:var(--suave);margin-top:12px}
+.portadas-metodo ol{margin:0;padding-left:23px;color:var(--suave);font-size:15px}.portadas-metodo li+li{margin-top:10px}.portadas-metodo b{color:var(--papel)}
+@media(max-width:900px){.portadas-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.portada-destacada,.portadas-metodo{grid-template-columns:1fr;gap:20px}}
+@media(max-width:480px){.portadas-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}}
+@media(prefers-reduced-motion:reduce){.portadas-grid img{transition:none}.portadas-grid a:hover img{transform:none}}
