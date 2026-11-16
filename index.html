@@ -65,7 +65,29 @@ section { padding-block: 80px; border-top: 1px solid var(--borde); }
 .caja .pago-mexico { color: #59616e; }
 [hidden] { display: none !important; }
 .boton.chico { padding: 10px 16px; font-size: 14px; border-radius: 10px; }
+.boton.comunidad { background: #25d366; color: #082414; white-space: normal; text-align: center; line-height: 1.35; }
+.boton.comunidad:hover { box-shadow: 0 8px 24px -8px rgba(37,211,102,.5); }
 .boton:focus-visible, video:focus-visible, button:focus-visible { outline: 3px solid var(--cobalto); outline-offset: 3px; }
+
+/* comunidad abierta: una entrada para quien quiere seguir explorando */
+.comunidad-entrada { margin-top: 24px; padding: 18px 20px; border: 1px solid rgba(37,211,102,.45); border-radius: 14px; background: rgba(37,211,102,.055); }
+.comunidad-entrada a { display: inline-flex; align-items: center; gap: 9px; font-weight: 700; color: #76e99f; text-underline-offset: 4px; }
+.comunidad-entrada svg { width: 22px; height: 22px; flex: none; }
+.comunidad-entrada p { margin-top: 7px; color: var(--suave); font-size: 14px; line-height: 1.5; }
+#comunidad { scroll-margin-top: 80px; padding-block: 48px; }
+.comunidad-panel { padding: clamp(24px, 4vw, 44px); border: 1px solid rgba(37,211,102,.4); border-radius: 24px; background: radial-gradient(ellipse at top right, rgba(37,211,102,.12), transparent 65%), var(--placa); }
+.comunidad-panel .etiqueta { color: #76e99f; }
+.comunidad-cabecera { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 36px; align-items: center; }
+.comunidad-cabecera h2 { font-size: clamp(28px, 3.5vw, 40px); max-width: 20em; }
+.comunidad-cabecera .sub { font-size: 16px; max-width: 48em; }
+.comunidad-cta { display: grid; gap: 10px; justify-items: center; }
+.comunidad-cta small { color: var(--suave); text-align: center; }
+.comunidad-beneficios { list-style: none; padding: 0; margin: 30px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.comunidad-beneficios li { border-top: 1px solid var(--borde); padding-top: 18px; }
+.comunidad-beneficios strong { display: block; color: var(--papel); margin-bottom: 5px; }
+.comunidad-beneficios p { color: var(--suave); font-size: 14px; line-height: 1.5; }
+.comunidad-precio { margin-top: 20px; color: #59616e; font-size: 14px; line-height: 1.5; }
+.comunidad-precio a { color: #13713b; font-weight: 700; text-underline-offset: 3px; }
 
 /* portada */
 .portada { padding-block: 56px 72px; position: relative; overflow: hidden; }
@@ -252,6 +274,9 @@ footer p + p { margin-top: 8px; }
   .conectar { grid-template-columns: minmax(0, 1fr); }
   .bono, .oferta { padding: 28px 22px; }
   section { padding-block: 60px; }
+  .comunidad-cabecera { grid-template-columns: minmax(0, 1fr); }
+  .comunidad-cta { justify-items: start; }
+  .comunidad-beneficios { grid-template-columns: minmax(0, 1fr); gap: 16px; }
 }
 @media (max-width: 480px) {
   .galeria { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; }
@@ -269,7 +294,7 @@ footer p + p { margin-top: 8px; }
 <div class="barra">
   <div class="envoltura">
     <a class="marca" href="#"><img src="media/logo.svg" alt=""><span>Ninjasux Motion Studio 6</span></a>
-    <nav aria-label="Secciones"><a href="#como">Cómo funciona</a><a href="#ejemplos">Ejemplos</a><a href="#portadas">Portadas</a><a href="#capcut">Bono CapCut</a><a href="#preguntas">Preguntas</a></nav>
+    <nav aria-label="Secciones"><a href="#como">Cómo funciona</a><a href="#ejemplos">Ejemplos</a><a href="#portadas">Portadas</a><a href="#comunidad">Comunidad</a><a href="#preguntas">Preguntas</a></nav>
     <a class="boton chico rojo" href="#precio">Comprar</a>
   </div>
 </div>
@@ -283,6 +308,13 @@ footer p + p { margin-top: 8px; }
       <div class="acciones">
         <a class="boton rojo" href="#precio">Lo quiero por US$15</a>
         <p class="precio-mini"><s data-viejo>US$25</s> <b data-precio>US$15</b> pago único<br>+ CapCut Assistant de regalo</p>
+      </div>
+      <div class="comunidad-entrada">
+        <a href="https://chat.whatsapp.com/CiRuW0xVmZIKA5EYX0A4Kq" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 21l1.8-5.5A8.5 8.5 0 1 1 21 11.5Z"/><path d="M8 10h8M8 14h5"/></svg>
+          Únete gratis a la comunidad de WhatsApp
+        </a>
+        <p>Actualizaciones, recursos gratis y videos de la comunidad. Puedes entrar aunque todavía no hayas comprado.</p>
       </div>
       <div class="funciona">
         <span class="rot">Funciona con</span>
@@ -302,6 +334,29 @@ footer p + p { margin-top: 8px; }
 </header>
 
 <main>
+  <section id="comunidad" aria-labelledby="comunidad-titulo">
+    <div class="envoltura">
+      <div class="comunidad-panel">
+        <p class="etiqueta">La comunidad de Ninjasux · en WhatsApp</p>
+        <div class="comunidad-cabecera">
+          <div>
+            <h2 id="comunidad-titulo">Mira lo que podemos crear juntos.</h2>
+            <p class="sub">Un espacio para quienes ya usan Motion Studio y para quienes quieren conocerlo. Recibe novedades, encuentra recursos gratis y comparte ideas mientras decides qué quieres crear.</p>
+          </div>
+          <div class="comunidad-cta">
+            <a class="boton comunidad" href="https://chat.whatsapp.com/CiRuW0xVmZIKA5EYX0A4Kq" target="_blank" rel="noopener noreferrer">Unirme gratis en WhatsApp ↗</a>
+            <small>Abierta a todos, con o sin compra.</small>
+          </div>
+        </div>
+        <ul class="comunidad-beneficios">
+          <li><strong>Actualizaciones de la aplicación</strong><p>Entérate de las novedades y mejoras de Motion Studio.</p></li>
+          <li><strong>Recursos gratis</strong><p>Iremos compartiendo materiales e ideas para tus próximos videos.</p></li>
+          <li><strong>Resultados e ideas reales</strong><p>Comparte tus pruebas y descubre lo que van creando otros miembros.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section id="como">
     <div class="envoltura">
       <p class="etiqueta">Cómo funciona</p>
@@ -566,6 +621,7 @@ footer p + p { margin-top: 8px; }
           <p class="pago-mexico" data-mexico-promocion>¿Tu tarjeta es mexicana? Elige el pago en MXN. Precio fijo de lanzamiento en pesos, equivalente a US$15; disponible hasta el martes 17 de noviembre, 23:59 (hora del centro de México).</p>
           <div class="garantia"><span>🛡️</span><span>Si no logras instalarla y no lo resolvemos juntos en 7 días, te devolvemos el 100%.</span></div>
           <p class="pago">Pago seguro con tarjeta vía Stripe · ¿Dudas? <b>oscar_8291@hotmail.com</b></p>
+          <p class="comunidad-precio">¿Quieres conocer más antes de comprar? <a href="https://chat.whatsapp.com/CiRuW0xVmZIKA5EYX0A4Kq" target="_blank" rel="noopener noreferrer">Únete gratis a la comunidad de WhatsApp ↗</a></p>
         </div>
       </div>
     </div>
@@ -575,6 +631,7 @@ footer p + p { margin-top: 8px; }
     <div class="envoltura preguntas">
       <p class="etiqueta">Preguntas</p>
       <h2>Antes de comprar</h2>
+      <details><summary>¿Puedo unirme a la comunidad sin comprar?</summary><p>Sí. La comunidad de WhatsApp está abierta tanto a compradores como a quienes quieren conocer Motion Studio. Ahí compartiremos actualizaciones de la aplicación, recursos gratis y los videos e ideas que aporte la comunidad. <a href="https://chat.whatsapp.com/CiRuW0xVmZIKA5EYX0A4Kq" target="_blank" rel="noopener noreferrer">Unirme gratis en WhatsApp ↗</a>.</p></details>
       <details><summary>¿Necesito saber programar o animar?</summary><p>No. Le pides las cosas a tu asistente de IA en el chat y él escribe y ejecuta todo. Tú revisas los borradores y decides.</p></details>
       <details><summary>¿Qué es Claude Code o Codex y cuál me conviene?</summary><p>Son asistentes de IA que trabajan dentro de tu computadora: leen archivos, escriben código y lo ejecutan. Claude Code es de Anthropic y Codex es de OpenAI. Motion Studio trae instrucciones para los dos. Si ya pagas Claude o ChatGPT, usa el que tengas.</p></details>
       <details><summary>¿Es un programa con botones?</summary><p>El video se crea conversando con tu asistente: cada pieza se arma para su tema. Algunas utilidades, como el asistente de portadas, también tienen un formulario local.</p></details>
