@@ -57,6 +57,13 @@ section { padding-block: 80px; border-top: 1px solid var(--borde); }
 .boton:hover { transform: translateY(-1px); box-shadow: 0 8px 24px -8px rgba(243,195,60,.55); }
 .boton.rojo { background: var(--rojo); color: #fff; }
 .boton.rojo:hover { box-shadow: 0 8px 24px -8px rgba(238,75,47,.6); }
+.boton.mexico { background: var(--teal); color: #071d18; white-space: normal; text-align: center; line-height: 1.35; }
+.boton.mexico:hover { box-shadow: 0 8px 24px -8px rgba(34,181,150,.6); }
+.pagos-opciones { display: grid; gap: 12px; margin-top: 20px; }
+.pagos-opciones .boton { width: 100%; white-space: normal; text-align: center; line-height: 1.35; }
+.pago-mexico { color: var(--suave); font-size: 13px; line-height: 1.5; margin-top: 10px; }
+.caja .pago-mexico { color: #59616e; }
+[hidden] { display: none !important; }
 .boton.chico { padding: 10px 16px; font-size: 14px; border-radius: 10px; }
 .boton:focus-visible, video:focus-visible, button:focus-visible { outline: 3px solid var(--cobalto); outline-offset: 3px; }
 
@@ -263,7 +270,7 @@ footer p + p { margin-top: 8px; }
   <div class="envoltura">
     <a class="marca" href="#"><img src="media/logo.svg" alt=""><span>Ninjasux Motion Studio 6</span></a>
     <nav aria-label="Secciones"><a href="#como">Cómo funciona</a><a href="#ejemplos">Ejemplos</a><a href="#portadas">Portadas</a><a href="#capcut">Bono CapCut</a><a href="#preguntas">Preguntas</a></nav>
-    <a class="boton chico rojo" href="https://buy.stripe.com/8x27sEgWU6CgfNobmxaIM00">Comprar · US$15</a>
+    <a class="boton chico rojo" href="#precio">Comprar</a>
   </div>
 </div>
 
@@ -552,7 +559,11 @@ footer p + p { margin-top: 8px; }
           <p class="etiqueta" style="margin:0" data-etiqueta>Precio de lanzamiento 6.0</p>
           <div class="cifra"><s data-viejo>US$25</s><b data-precio>US$15</b><small>pago único</small></div>
           <p class="cupo" data-cupo><b>Termina en <span class="reloj" data-hasta>48 h</span></b> (martes 17 de noviembre, 23:59 hora del centro de México). Después sube a US$25. Los videos que hagas son tuyos y no pagas regalías.</p>
-          <a class="boton rojo" href="https://buy.stripe.com/8x27sEgWU6CgfNobmxaIM00">Comprar ahora</a>
+          <div class="pagos-opciones">
+            <a class="boton mexico" data-mexico-promocion href="https://buy.stripe.com/00w8wIgWU5yc58K3U5aIM01">Pagar desde México · $278.29 MXN</a>
+            <a class="boton rojo" href="https://buy.stripe.com/8x27sEgWU6CgfNobmxaIM00">Pago internacional · US$15</a>
+          </div>
+          <p class="pago-mexico" data-mexico-promocion>¿Tu tarjeta es mexicana? Elige el pago en MXN. Precio fijo de lanzamiento en pesos, equivalente a US$15; disponible hasta el martes 17 de noviembre, 23:59 (hora del centro de México).</p>
           <div class="garantia"><span>🛡️</span><span>Si no logras instalarla y no lo resolvemos juntos en 7 días, te devolvemos el 100%.</span></div>
           <p class="pago">Pago seguro con tarjeta vía Stripe · ¿Dudas? <b>oscar_8291@hotmail.com</b></p>
         </div>
@@ -581,7 +592,10 @@ footer p + p { margin-top: 8px; }
     <div class="envoltura">
       <h2>Tu próxima idea puede ser un reel antes de la cena.</h2>
       <p class="sub" data-cierre>US$15 solo hasta el martes 17, con el CapCut Assistant de regalo. Después, US$25.</p>
-      <div class="acciones"><a class="boton rojo" href="https://buy.stripe.com/8x27sEgWU6CgfNobmxaIM00">Comprar ahora · US$15</a></div>
+      <div class="acciones">
+        <a class="boton mexico" data-mexico-promocion href="https://buy.stripe.com/00w8wIgWU5yc58K3U5aIM01">Pagar desde México · $278.29 MXN</a>
+        <a class="boton rojo" href="https://buy.stripe.com/8x27sEgWU6CgfNobmxaIM00">Pago internacional · US$15</a>
+      </div>
     </div>
   </section>
 </main>
@@ -617,6 +631,7 @@ footer p + p { margin-top: 8px; }
   function pinta() {
     var r = fin - Date.now(), relojes = document.querySelectorAll("[data-hasta]");
     if (r <= 0) {
+      document.querySelectorAll("[data-mexico-promocion]").forEach(function (e) { e.hidden = true; });
       document.querySelectorAll("[data-precio]").forEach(function (e) { e.textContent = "US$25"; });
       document.querySelectorAll("[data-viejo]").forEach(function (e) { e.style.display = "none"; });
       var et = document.querySelector("[data-etiqueta]"); if (et) et.textContent = "Precio";
