@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Escríbele la idea a Claude Code o Codex y sale un reel animado: guion, voz, animación 2D y 3D, música y portada, en tu computadora. US$15 con el CapCut Assistant de regalo.">
+<meta name="description" content="Escríbele la idea a Claude Code o Codex y sale un reel animado: guion, voz, animación 2D y 3D, música y portada, en tu computadora. US$25 pago único con el CapCut Assistant de regalo.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ninjasux Motion Studio 6 · Escribes la idea, sale el reel animado">
-<meta property="og:description" content="Tu asistente de IA (Claude Code o Codex) se vuelve un estudio de animación. Versión 6.0: US$15 solo hasta el martes 17 + CapCut Assistant de regalo.">
+<meta property="og:description" content="Tu asistente de IA (Claude Code o Codex) se vuelve un estudio de animación. Versión 6.0: US$25 pago único + CapCut Assistant de regalo.">
 <meta property="og:image" content="https://ninjaasux.github.io/ninjasux-motion-studio-demo/media/compartir.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -391,11 +391,11 @@ footer { padding-block: 28px; font-size: 12px; }
 <header class="portada">
   <div class="envoltura">
     <div>
-      <span class="chip"><b>NUEVA 6.0</b> Lanzamiento · <span class="reloj" data-hasta>Hasta el 17 de noviembre</span></span>
+      <span class="chip"><b>NUEVA 6.0</b> ya disponible</span>
       <h1>Tu idea. <span class="rojo">Un video animado.</span></h1>
       <p class="bajada">Dile qué quieres contar a <b>Claude Code o Codex</b>. Motion Studio le da las herramientas para crear el guion, la voz, la animación, la música y la portada en tu computadora.</p>
       <div class="acciones">
-        <a class="boton rojo" href="#precio">Lo quiero · <span data-precio>US$15</span></a>
+        <a class="boton rojo" href="#precio">Lo quiero · <span data-precio>US$25</span></a>
         <a class="enlace-demo" href="#ejemplos">Ver ejemplos ↓</a>
       </div>
       <p class="nota-hero">Pago único · 12 meses de actualizaciones 6.x · CapCut Assistant de regalo</p>
@@ -546,14 +546,14 @@ footer { padding-block: 28px; font-size: 12px; }
           </ul></details>
         </div>
         <div class="caja">
-          <p class="etiqueta" style="margin:0" data-etiqueta>Precio de lanzamiento 6.0</p>
-          <div class="cifra"><s data-viejo>US$25</s><b data-precio>US$15</b><small>pago único</small></div>
-          <p class="cupo" data-cupo><b>Termina en <span class="reloj" data-hasta>48 h</span></b> (martes 17 de noviembre, 23:59 hora del centro de México). Después sube a US$25. Los videos que hagas son tuyos y no pagas regalías.</p>
+          <p class="etiqueta" style="margin:0" data-etiqueta>Precio</p>
+          <div class="cifra"><b data-precio>US$25</b><small>pago único</small></div>
+          <p class="cupo" data-cupo>Incluye 12 meses de actualizaciones 6.x. Los videos que hagas son tuyos y no pagas regalías.</p>
           <div class="pagos-opciones">
-            <a class="boton mexico" data-mexico-promocion href="https://buy.stripe.com/00w8wIgWU5yc58K3U5aIM01">Pagar desde México · $278.29 MXN</a>
-            <a class="boton rojo" href="https://buy.stripe.com/8x27sEgWU6CgfNobmxaIM00">Pago internacional · US$15</a>
+            <a class="boton mexico" href="https://buy.stripe.com/28E28k364bWA0Su8alaIM03">Pagar desde México · $463.82 MXN</a>
+            <a class="boton rojo" href="https://buy.stripe.com/dRmcMYbCA2m07gS0HTaIM02">Pago internacional · US$25</a>
           </div>
-          <p class="pago-mexico" data-mexico-promocion>Tarjetas mexicanas: elige MXN. Precio fijo en pesos durante el lanzamiento.</p>
+          <p class="pago-mexico">Tarjetas mexicanas: elige MXN, precio fijo en pesos. Desde otro país: pago internacional en dólares.</p>
           <div class="garantia"><span>🛡️</span><span>Si no logras instalarla y no lo resolvemos juntos en 7 días, te devolvemos el 100%.</span></div>
           <p class="pago">Pago seguro con tarjeta vía Stripe · ¿Dudas? <b>oscar_8291@hotmail.com</b></p>
           <p class="comunidad-precio">¿Prefieres conocerla primero? <a href="https://chat.whatsapp.com/CiRuW0xVmZIKA5EYX0A4Kq" target="_blank" rel="noopener noreferrer">Únete gratis a la comunidad de WhatsApp ↗</a></p>
@@ -616,31 +616,5 @@ footer { padding-block: 28px; font-size: 12px; }
 </script>
 
 
-<style>.reloj{font-variant-numeric:tabular-nums;white-space:nowrap}</style>
-<script>
-// Cuenta regresiva del precio de lanzamiento 6.0: termina el martes 17 de noviembre de 2026, 23:59 (centro de México).
-(function () {
-  var fin = new Date("2026-11-17T23:59:00-06:00").getTime();
-  var dos = function (n) { return (n < 10 ? "0" : "") + n; };
-  function pinta() {
-    var r = fin - Date.now(), relojes = document.querySelectorAll("[data-hasta]");
-    if (r <= 0) {
-      document.querySelectorAll("[data-mexico-promocion]").forEach(function (e) { e.hidden = true; });
-      document.querySelectorAll("[data-precio]").forEach(function (e) { e.textContent = "US$25"; });
-      document.querySelectorAll("[data-viejo]").forEach(function (e) { e.style.display = "none"; });
-      var et = document.querySelector("[data-etiqueta]"); if (et) et.textContent = "Precio";
-      var cu = document.querySelector("[data-cupo]"); if (cu) cu.innerHTML = "El precio de lanzamiento terminó. Los videos que hagas son tuyos y no pagas regalías.";
-      var ci = document.querySelector("[data-cierre]"); if (ci) ci.textContent = "US$25 pago único, con el CapCut Assistant de regalo.";
-      var ch = document.querySelector(".chip"); if (ch) ch.innerHTML = "<b>NUEVA 6.0</b> ya disponible";
-      return;
-    }
-    var d = Math.floor(r / 864e5), h = Math.floor(r / 36e5) % 24, m = Math.floor(r / 6e4) % 60, sg = Math.floor(r / 1e3) % 60;
-    var t = (d ? d + "d " : "") + dos(h) + ":" + dos(m) + ":" + dos(sg);
-    relojes.forEach(function (e) { e.textContent = t; });
-    setTimeout(pinta, 1000);
-  }
-  pinta();
-})();
-</script>
 </body>
 </html>
