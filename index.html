@@ -63,6 +63,8 @@ section { padding-block: 80px; border-top: 1px solid var(--borde); }
 .pagos-opciones .boton { width: 100%; white-space: normal; text-align: center; line-height: 1.35; }
 .pago-mexico { color: var(--suave); font-size: 13px; line-height: 1.5; margin-top: 10px; }
 .caja .pago-mexico { color: #59616e; }
+.caja .precio-mxn { margin-top: 6px; font-size: 15px; color: #3c4252; }
+.caja .precio-mxn b { color: #171a22; }
 [hidden] { display: none !important; }
 .boton.chico { padding: 10px 16px; font-size: 14px; border-radius: 10px; }
 .boton.comunidad { background: #25d366; color: #082414; white-space: normal; text-align: center; line-height: 1.35; }
@@ -549,12 +551,13 @@ footer { padding-block: 28px; font-size: 12px; }
         <div class="caja">
           <p class="etiqueta" style="margin:0" data-etiqueta>Versión 7.0</p>
           <div class="cifra"><b data-precio>US$24.99</b><small>pago único</small></div>
+          <p class="precio-mxn">Desde México: <b>$485 MXN</b> pago único</p>
           <p class="cupo" data-cupo>Pago único. Los videos que hagas son tuyos y no pagas regalías.</p>
           <div class="pagos-opciones">
-            <a class="boton mexico" data-mexico-promocion hidden href="https://buy.stripe.com/9B68wIbCAbWAat4duFaIM04">Pagar desde México · MXN</a>
             <a class="boton rojo" href="https://buy.stripe.com/9B68wIbCAbWAat4duFaIM04">Pago internacional · US$24.99</a>
+            <a class="boton rojo" href="https://buy.stripe.com/5kQbIUgWU7Gk1Wy62daIM06">Pagar desde México · $485 MXN</a>
           </div>
-          <p class="pago-mexico" data-mexico-promocion hidden>Tarjetas mexicanas: elige MXN.</p>
+          <p class="pago-mexico">Con tarjeta mexicana elige el pago en pesos ($485 MXN, pago único). Desde otro país, el internacional en dólares (US$24.99, pago único).</p>
           <div class="garantia"><span>🛡️</span><span>Si no logras instalarla y no lo resolvemos juntos en 7 días, te devolvemos el 100%.</span></div>
           <p class="pago">Pago seguro con tarjeta vía Stripe · ¿Dudas? <b>oscar_8291@hotmail.com</b></p>
           <p class="comunidad-precio">¿Prefieres conocerla primero? <a href="https://chat.whatsapp.com/CiRuW0xVmZIKA5EYX0A4Kq" target="_blank" rel="noopener noreferrer">Únete gratis a la comunidad de WhatsApp ↗</a></p>
